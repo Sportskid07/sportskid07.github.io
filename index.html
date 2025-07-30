@@ -218,37 +218,13 @@
   
   <!-- Bootstrap JS (place just before </body>) -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const dropdownLink = document.querySelector('.nav-item.dropdown > .nav-link.dropdown-toggle');
 
-    let openedDropdown = false;
-
-    dropdownLink.addEventListener('click', function (e) {
-      if (!openedDropdown) {
-        e.preventDefault(); // stop immediate redirect
-        const dropdown = bootstrap.Dropdown.getOrCreateInstance(dropdownLink);
-        dropdown.show();
-        openedDropdown = true;
-
-        // Allow redirect on second click
-        setTimeout(() => {
-          openedDropdown = false;
-        }, 300); // reset after 300ms
-      } else {
-        // Now allow redirection
-        const href = this.getAttribute('href');
-        if (href && href !== '#') {
-          window.location.href = href;
-        }
-      }
-    });
-  });
-</script>
 
 
 <!-- Your custom JS (optional) -->
-<script src="js/script.js"></script>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/main.js"></script>
+
 
 </body>
 </html>
