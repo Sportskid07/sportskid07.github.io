@@ -35,12 +35,15 @@ footer a:hover{ opacity:.8; }
   display: block;
   margin-top: 0;
 }
-/* Show dropdown on hover */
-.nav-item.dropdown:hover .dropdown-menu {
-  display: block;
-}
-/* Show dropdown menu on hover */
+/* Make dropdown show on hover */
 .nav-item.dropdown:hover .dropdown-menu {
   display: block;
   margin-top: 0;
 }
+
+/* Optional: keep menu from closing immediately on slight mouse out */
+.navbar-nav .dropdown-menu {
+  margin-top: 0;
+  transition: all 0.3s ease;
+}
+
