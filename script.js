@@ -4,23 +4,37 @@ document.addEventListener("DOMContentLoaded", function () {
   if (aboutDropdown) {
     const navItem = aboutDropdown.closest(".nav-item");
     const dropdownInstance = bootstrap.Dropdown.getOrCreateInstance(aboutDropdown);
-    const isMobile = window.innerWidth < 992;
 
-    // Click behavior: navigate to about.html if dropdown is already open
-    aboutDropdown.addEventListener("click", function (e) {
-      if (!this.parentElement.classList.contains("show")) {
-        // First click (desktop): prevent navigation, open dropdown
-        e.preventDefault();
-      } else {
-        // Second click or on mobile: go to overview page
-        window.location.href = this.getAttribute("href");
-      }
-    });
-
-    // Hover behavior (desktop only)
-    if (!isMobile) {
+    // Desktop hover behavior
+    if (window.innerWidth >= 992) {
+      // Hover to show/hide dropdown
       navItem.addEventListener("mouseenter", () => dropdownInstance.show());
       navItem.addEventListener("mouseleave", () => dropdownInstance.hide());
+
+      // Click logic (first opens, second navigates)
+      let clickedOnce = false;
+
+      aboutDropdown.addEventListener("click", function (e) {
+        if (!clickedOnce) {
+          // First click: open only
+          e.preventDefault();
+          dropdownInstance.show();
+          clickedOnce = true;
+
+          // Reset on blur
+          setTimeout(() => {
+            clickedOnce = false;
+          }, 1500);
+        } else {
+          // Second click: allow navigation
+          window.location.href = aboutDropdown.getAttribute("href");
+        }
+      });
+    } else {
+      // Mobile: directly navigate on click
+      aboutDropdown.addEventListener("click", function () {
+        window.location.href = aboutDropdown.getAttribute("href");
+      });
     }
   }
 });
