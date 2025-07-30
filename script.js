@@ -1,32 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
   const aboutDropdown = document.getElementById("aboutDropdown");
-  const navItem = aboutDropdown.closest(".nav-item");
 
-  // Enable Bootstrap dropdown
-  const dropdownInstance = bootstrap.Dropdown.getOrCreateInstance(aboutDropdown);
-
-  // Desktop hover behavior
-  navItem.addEventListener("mouseenter", function () {
-    if (window.innerWidth >= 992) {
-      dropdownInstance.show();
-    }
-  });
-
-  navItem.addEventListener("mouseleave", function () {
-    if (window.innerWidth >= 992) {
-      dropdownInstance.hide();
-    }
-  });
-
-  // Click behavior: redirect to about.html
-  aboutDropdown.addEventListener("click", function (e) {
+  if (aboutDropdown) {
+    const navItem = aboutDropdown.closest(".nav-item");
+    const dropdownInstance = bootstrap.Dropdown.getOrCreateInstance(aboutDropdown);
     const isMobile = window.innerWidth < 992;
 
+    // Click behavior: navigate to about.html if dropdown is already open
+    aboutDropdown.addEventListener("click", function (e) {
+      if (!this.parentElement.classList.contains("show")) {
+        // First click (desktop): prevent navigation, open dropdown
+        e.preventDefault();
+      } else {
+        // Second click or on mobile: go to overview page
+        window.location.href = this.getAttribute("href");
+      }
+    });
+
+    // Hover behavior (desktop only)
     if (!isMobile) {
-      // Desktop: redirect on click
-      e.preventDefault();
-      window.location.href = aboutDropdown.getAttribute("href");
+      navItem.addEventListener("mouseenter", () => dropdownInstance.show());
+      navItem.addEventListener("mouseleave", () => dropdownInstance.hide());
     }
-    // On mobile, default Bootstrap click-toggle will work
-  });
+  }
 });
