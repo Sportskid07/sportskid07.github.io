@@ -34,3 +34,13 @@ document.querySelectorAll('.dropdown-toggle').forEach(function (toggle) {
     }
   });
 });
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const aboutDropdown = document.getElementById('aboutDropdown');
+
+    aboutDropdown.addEventListener('click', function (e) {
+      // Navigate to about.html when clicked
+      window.location.href = this.getAttribute('href');
+    });
+  });
+
