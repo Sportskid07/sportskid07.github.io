@@ -58,3 +58,26 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
+document.addEventListener("DOMContentLoaded", function () {
+  const aboutDropdown = document.getElementById("aboutDropdown");
+  const navItem = aboutDropdown.closest(".nav-item");
+
+  // Bootstrap dropdown instance
+  const dropdownInstance = bootstrap.Dropdown.getOrCreateInstance(aboutDropdown);
+
+  // Show dropdown on hover
+  navItem.addEventListener("mouseenter", function () {
+    dropdownInstance.show();
+  });
+
+  // Hide dropdown on mouse leave
+  navItem.addEventListener("mouseleave", function () {
+    dropdownInstance.hide();
+  });
+
+  // Redirect to overview when clicked
+  aboutDropdown.addEventListener("click", function (e) {
+    e.preventDefault(); // Stop Bootstrap toggle
+    window.location.href = aboutDropdown.getAttribute("href"); // Redirect
+  });
+});
