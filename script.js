@@ -1,40 +1,41 @@
 document.addEventListener("DOMContentLoaded", function () {
   const aboutDropdown = document.getElementById("aboutDropdown");
 
-  if (aboutDropdown) {
-    const navItem = aboutDropdown.closest(".nav-item");
-    const dropdownInstance = bootstrap.Dropdown.getOrCreateInstance(aboutDropdown);
+  if (!aboutDropdown) return;
 
-    // Desktop hover behavior
-    if (window.innerWidth >= 992) {
-      // Hover to show/hide dropdown
-      navItem.addEventListener("mouseenter", () => dropdownInstance.show());
-      navItem.addEventListener("mouseleave", () => dropdownInstance.hide());
+  const navItem = aboutDropdown.closest(".nav-item");
+  const dropdownInstance = bootstrap.Dropdown.getOrCreateInstance(aboutDropdown);
+  const isMobile = window.innerWidth < 992;
 
-      // Click logic (first opens, second navigates)
-      let clickedOnce = false;
+  // Desktop: Hover to open dropdown
+  if (!isMobile) {
+    navItem.addEventListener("mouseenter", () => dropdownInstance.show());
+    navItem.addEventListener("mouseleave", () => dropdownInstance.hide());
 
-      aboutDropdown.addEventListener("click", function (e) {
-        if (!clickedOnce) {
-          // First click: open only
-          e.preventDefault();
-          dropdownInstance.show();
-          clickedOnce = true;
+    let clickedOnce = false;
 
-          // Reset on blur
-          setTimeout(() => {
-            clickedOnce = false;
-          }, 1500);
-        } else {
-          // Second click: allow navigation
-          window.location.href = aboutDropdown.getAttribute("href");
-        }
-      });
-    } else {
-      // Mobile: directly navigate on click
-      aboutDropdown.addEventListener("click", function () {
-        window.location.href = aboutDropdown.getAttribute("href");
-      });
-    }
+    aboutDropdown.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      if (!clickedOnce) {
+        // First click: open dropdown
+        dropdownInstance.show();
+        clickedOnce = true;
+
+        // Reset after 1.5s
+        setTimeout(() => {
+          clickedOnce = false;
+        }, 1500);
+      } else {
+        // Second click: navigate
+        window.location.href = this.getAttribute("href");
+      }
+    });
+  } else {
+    // Mobile: click directly navigates
+    aboutDropdown.addEventListener("click", function () {
+      window.location.href = this.getAttribute("href");
+    });
   }
 });
+
