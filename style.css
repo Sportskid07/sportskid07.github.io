@@ -35,3 +35,7 @@ footer a:hover{ opacity:.8; }
   display: block;
   margin-top: 0;
 }
+/* Show dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
