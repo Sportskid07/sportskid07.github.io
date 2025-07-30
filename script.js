@@ -43,23 +43,18 @@ document.querySelectorAll('.dropdown-toggle').forEach(function (toggle) {
       window.location.href = this.getAttribute('href');
     });
   });
+
 document.addEventListener("DOMContentLoaded", function () {
-  const dropdownToggle = document.querySelector("#aboutDropdown");
-  const dropdownMenu = document.querySelector("#aboutDropdown + .dropdown-menu");
+  const aboutDropdown = document.getElementById("aboutDropdown");
 
-  // Show dropdown menu on hover
-  if (dropdownToggle && dropdownMenu) {
-    dropdownToggle.parentElement.addEventListener("mouseover", function () {
-      dropdownMenu.style.display = "block";
-    });
-
-    dropdownToggle.parentElement.addEventListener("mouseout", function () {
-      dropdownMenu.style.display = "none";
-    });
-
-    // Redirect to about.html on click
-    dropdownToggle.addEventListener("click", function (e) {
-      window.location.href = this.getAttribute("href");
+  if (aboutDropdown) {
+    aboutDropdown.addEventListener("click", function (e) {
+      // If dropdown is already open, allow default (click to overview)
+      if (!this.parentElement.classList.contains("show")) {
+        // Delay the redirect to allow dropdown to open on hover
+        e.preventDefault();
+        window.location.href = this.getAttribute("href");
+      }
     });
   }
 });
