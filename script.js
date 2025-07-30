@@ -43,4 +43,8 @@ document.querySelectorAll('.dropdown-toggle').forEach(function (toggle) {
       window.location.href = this.getAttribute('href');
     });
   });
+/* Show dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
 
