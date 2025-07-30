@@ -43,23 +43,23 @@ document.querySelectorAll('.dropdown-toggle').forEach(function (toggle) {
       window.location.href = this.getAttribute('href');
     });
   });
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const dropdownToggle = document.querySelector("#aboutDropdown");
-    const dropdownMenu = document.querySelector("#aboutDropdown + .dropdown-menu");
+document.addEventListener("DOMContentLoaded", function () {
+  const dropdownToggle = document.querySelector("#aboutDropdown");
+  const dropdownMenu = document.querySelector("#aboutDropdown + .dropdown-menu");
 
-    // Show dropdown on hover (for GitHub Pages compatibility)
-    dropdownToggle.parentElement.addEventListener("mouseover", () => {
+  // Show dropdown menu on hover
+  if (dropdownToggle && dropdownMenu) {
+    dropdownToggle.parentElement.addEventListener("mouseover", function () {
       dropdownMenu.style.display = "block";
     });
 
-    dropdownToggle.parentElement.addEventListener("mouseout", () => {
+    dropdownToggle.parentElement.addEventListener("mouseout", function () {
       dropdownMenu.style.display = "none";
     });
 
-    // Redirect to about.html when clicked
+    // Redirect to about.html on click
     dropdownToggle.addEventListener("click", function (e) {
       window.location.href = this.getAttribute("href");
     });
-  });
-</script>
+  }
+});
