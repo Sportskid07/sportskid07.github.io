@@ -30,3 +30,8 @@
   border-radius: .25rem;
 }
 footer a:hover{ opacity:.8; }
+/* Show dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
