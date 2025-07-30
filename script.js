@@ -34,19 +34,3 @@ document.querySelectorAll('.dropdown-toggle').forEach(function (toggle) {
     }
   });
 });
-<script>
-  // Redirect to href on click of dropdown toggle link (About Us)
-  document.addEventListener('DOMContentLoaded', function () {
-    const dropdownToggle = document.querySelectorAll('.nav-item.dropdown > a.dropdown-toggle');
-
-    dropdownToggle.forEach(link => {
-      link.addEventListener('click', function (e) {
-        const href = this.getAttribute('href');
-        if (href && href !== '#') {
-          window.location.href = href;
-        }
-      });
-    });
-  });
-</script>
-
