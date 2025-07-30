@@ -43,8 +43,23 @@ document.querySelectorAll('.dropdown-toggle').forEach(function (toggle) {
       window.location.href = this.getAttribute('href');
     });
   });
-/* Show dropdown on hover */
-.nav-item.dropdown:hover .dropdown-menu {
-  display: block;
-}
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const dropdownToggle = document.querySelector("#aboutDropdown");
+    const dropdownMenu = document.querySelector("#aboutDropdown + .dropdown-menu");
 
+    // Show dropdown on hover (for GitHub Pages compatibility)
+    dropdownToggle.parentElement.addEventListener("mouseover", () => {
+      dropdownMenu.style.display = "block";
+    });
+
+    dropdownToggle.parentElement.addEventListener("mouseout", () => {
+      dropdownMenu.style.display = "none";
+    });
+
+    // Redirect to about.html when clicked
+    dropdownToggle.addEventListener("click", function (e) {
+      window.location.href = this.getAttribute("href");
+    });
+  });
+</script>
