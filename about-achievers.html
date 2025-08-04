@@ -7,10 +7,50 @@
   <link href="css/style.css" rel="stylesheet"></head><body>
   <div class="bg-danger text-white text-center py-1 small">Welcome to the Official Site...</div>
   <!-- nav ... -->
-  <header class="bg-white shadow-sm"><div class="container py-2 d-flex align-items-center"><a href="index.html"><img src="images/logo.png" width="60"></a></div><nav class="navbar navbar-expand-lg navbar-dark bg-primary"><div class="container"><button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=\"#anav\"><span class=\"navbar-toggler-icon\"></span></button><div id=\"anav\" class=\"collapse navbar-collapse\"><ul class=\"navbar-nav me-auto\"><li class=\"nav-item\"><a class=\"nav-link\" href=\"index.html\">Home</a></li><li class=\"nav-item\"><a class=\"nav-link active\" href=\"about.html\">About Us</a></li></ul></div></div></nav></header>
+  <header class="bg-white shadow-sm">
+  <div class="container py-2 d-flex align-items-center justify-content-between">
+    <a href="index.html" class="d-flex align-items-center text-decoration-none">
+      <img src="images/logo.png" alt="School logo" width="60" class="me-2">
+      <span class="fs-5 fw-semibold text-primary">Mahila Vidhyalaya Mandal’s EMS</span>
+    </a>
+    <form class="d-none d-md-flex" role="search">
+      <input class="form-control form-control-sm me-2" type="search" placeholder="Search the site…">
+      <button class="btn btn-sm btn-outline-primary" type="submit">Search</button>
+    </form>
+  </div>
 
-  <main class="container py-5">
-    <a href="about.html" class="btn btn-outline-secondary btn-sm mb-4"><i class="fa fa-arrow-left me-1"></i>Back to About Us</a>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="about.html" id="aboutDropdown" role="button"  aria-expanded="false">
+    About Us
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="aboutDropdown">
+    <li><a class="dropdown-item" href="about-history.html">School History</a></li>
+    <li><a class="dropdown-item" href="about-vision.html">Mission & Vision</a></li>
+    <li><a class="dropdown-item" href="staff.html">Teachers & Staff</a></li>
+    <li><a class="dropdown-item" href="about-management.html">Management</a></li>
+    <li><a class="dropdown-item" href="about-achievers.html">Achievers</a></li>
+
+    <!-- Add more subpages -->
+  </ul>
+</li>
+          <li class="nav-item"><a class="nav-link" href="academics.html">Academics</a></li>
+          <li class="nav-item"><a class="nav-link" href="activities.html">Activities</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
     <h2 class="mb-4 text-center">Student Achievers</h2>
     <div class="row g-4">
       <div class="col-md-4"><div class="card"><img src="images/achiever1.jpg" class="card-img-top"><div class="card-body"><h5>Aditi K.</h5><p>SSLC State Topper 2024</p></div></div></div>
