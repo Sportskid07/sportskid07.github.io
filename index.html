@@ -189,7 +189,17 @@
   <script>
   console.log("script.js loaded ✅");
 </script>
+<script>
+fetch('partials/header.html')
+  .then(response => response.text())
+  .then(data => document.getElementById('header').innerHTML = data)
+  .catch(err => console.error('Error loading header:', err));
 
+fetch('partials/footer.html')
+  .then(response => response.text())
+  .then(data => document.getElementById('footer').innerHTML = data)
+  .catch(err => console.error('Error loading footer:', err));
+</script>
 
 
 <div id="fb-root"></div>
@@ -209,4 +219,5 @@
 
 </body>
 </html>
+
 
