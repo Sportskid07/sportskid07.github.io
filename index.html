@@ -10,7 +10,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-   <script src="include.js" defer></script>
+   <script src="js/include.js" defer></script>
 
   <!-- Custom CSS -->
   <link href="style.css" rel="stylesheet">
@@ -23,7 +23,7 @@
   </div>
 
   <!-- 🔵 HEADER + NAVBAR (Home active) -->
- <div data-include="header.html"></div>
+ <div data-include="partials/header.html"></div>
 
   <!-- 🟡 HERO / SLIDER -->
   <!-- (Replace banner2.jpg path when you have an image) -->
@@ -176,7 +176,7 @@
 
 
       <!-- Footer -->
- <div data-include="footer.html"></div>
+ <div data-include="partials/footer.html"></div>
 
 
   <link rel="stylesheet" href="style.css">
@@ -189,17 +189,7 @@
   <script>
   console.log("script.js loaded ✅");
 </script>
-<script>
-fetch('header.html')
-  .then(response => response.text())
-  .then(data => document.getElementById('header').innerHTML = data)
-  .catch(err => console.error('Error loading header:', err));
 
-fetch('footer.html')
-  .then(response => response.text())
-  .then(data => document.getElementById('footer').innerHTML = data)
-  .catch(err => console.error('Error loading footer:', err));
-</script>
 
 
 <div id="fb-root"></div>
@@ -219,6 +209,7 @@ fetch('footer.html')
 
 </body>
 </html>
+
 
 
 
