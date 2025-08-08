@@ -1,0 +1,116 @@
+/* ——— About page tweaks ——— */
+.about-card img{
+  object-fit: cover;
+  height: 160px;
+}
+.about-card .card-body{
+  min-height: 190px;   /* keeps card heights uniform */
+}
+.about-card .stretched-link{
+  font-size: 0.85rem;
+}
+
+.about-sidebar{
+  top: 90px;           /* same sticky offset as your navbar height */
+}
+.about-sidebar ul li{
+  margin-bottom: 6px;
+}
+.about-sidebar a{
+  text-decoration: none;
+}
+.about-sidebar a:hover{
+  text-decoration: underline;
+}
+/* General styling */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f8f9fa;
+}
+
+.navbar .nav-link.active {
+  font-weight: bold;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+.navbar .dropdown-menu {
+  background-color: #0d6efd;
+}
+
+.navbar .dropdown-item {
+  color: white;
+}
+
+.navbar .dropdown-item:hover {
+  background-color: #0b5ed7;
+}
+
+footer {
+  font-size: 0.85rem;
+  padding-bottom: 20px;
+}
+
+footer a {
+  color: white;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  text-decoration: none;
+}
+/* Show dropdown on hover */
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+  margin-top: 0;
+}
+/* Show dropdown on hover (desktop only) */
+@media (min-width: 992px) {
+  .navbar .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
+}
+/* —— School colour tweaks —— */
+:root{
+  --mvm-blue: #004a99;
+  --mvm-orange: #ffbb33;
+}
+
+/* override Bootstrap primary to match logo */
+.bg-primary,
+.btn-primary,
+.navbar-dark.bg-primary {
+  background-color: var(--mvm-blue)!important;
+}
+
+.text-primary {
+  color: var(--mvm-blue)!important;
+}
+
+.btn-outline-primary {
+  border-color: var(--mvm-blue);
+  color: var(--mvm-blue);
+}
+.btn-outline-primary:hover {
+  background: var(--mvm-blue);
+  color:#fff;
+}
+
+/* small extras */
+.carousel-caption{
+  background: rgba(0,0,0,.4);
+  border-radius: .25rem;
+}
+footer a:hover{ opacity:.8; }
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transform: scale(1.02);
+  transition: 0.3s ease;
+}
+.card img {
+  border-radius: 4px;
+}
+footer a.text-white:hover {
+  color: #ccc;
+}
