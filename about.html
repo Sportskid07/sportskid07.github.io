@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>About — Mahila Vidyalya Mandal English School</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- top bar -->
+  <div class="top-bar"><div class="wrap">Welcome to Mahila Vidyalya Mandal English School • Admissions open for 2025–26</div></div>
+
+  <!-- header + nav (About Us has dropdown) -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div class="brand-left">
+        <div class="logo-wrap">
+          <img src="logo.png" alt="MVM logo" class="logo-img" onerror="this.style.opacity=0.12">
+          <div class="logo-fallback">MVM</div>
+        </div>
+        <div class="brand-text">
+          <div class="school-name">Mahila Vidyalya Mandal English School</div>
+          <div class="school-sub">Kallehol, Camp · Belagavi</div>
+        </div>
+      </div>
+
+      <div class="brand-right">
+        <form class="search-form" onsubmit="return false;">
+          <input type="search" placeholder="Search site..." aria-label="Search site">
+          <button type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-bar" aria-label="Primary navigation">
+    <div class="wrap">
+      <ul class="nav-list">
+        <li><a href="index.html">Home</a></li>
+
+        <!-- ABOUT dropdown -->
+        <li class="nav-dropdown">
+          <button class="drop-btn" aria-expanded="false">About Us ▾</button>
+          <ul class="drop-menu" aria-label="About submenu">
+            <li><a href="about-school.html">About School</a></li>
+            <li><a href="about-founder.html">About Founder</a></li>
+            <li><a href="school-management.html">School Management</a></li>
+            <li><a href="school-timings.html">School Timings</a></li>
+            <li><a href="visiting-hours.html">Visiting Hours</a></li>
+          </ul>
+        </li>
+
+        <li><a href="#">Academics</a></li>
+        <li><a href="#">Admissions</a></li>
+        <li><a href="#">Facilities</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero / intro -->
+  <section class="hero" style="padding:26px 0;">
+    <div class="wrap">
+      <div style="background:#fff;border-radius:12px;padding:20px;box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+        <div>
+          <h1 style="margin:0;font-family:Playfair Display, serif">About</h1>
+          <p class="muted" style="margin:6px 0 0">Learn more about MVM — our history, values and practical information for parents and visitors.</p>
+        </div>
+        <div>
+          <a class="btn primary" href="about-school.html">About School</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- brief landing content -->
+  <main class="wrap" style="padding:30px 0;">
+    <div style="display:grid;grid-template-columns:1fr;gap:18px">
+      <div class="card">
+        <h2 style="margin-top:0">Welcome to Mahila Vidyalya Mandal</h2>
+        <p class="muted">Use the About dropdown in the navigation to read details for each subsection: About School, Founder, Management, Timings and Visiting Hours.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- footer (same as other pages) -->
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="wrap footer-top-inner">
+        <div class="footer-left">
+          <h5 class="text-gold">Follow Us</h5>
+          <a href="#"><i class="fab fa-facebook fa-lg me-3"></i></a>
+          <a href="#"><i class="fab fa-instagram fa-lg me-3"></i></a>
+          <a href="#"><i class="fab fa-youtube fa-lg"></i></a>
+        </div>
+
+        <div class="contact">
+          <h4>Contact</h4>
+          <address>
+            Kallehol, Camp, Belagavi – 590 001<br>
+            Karnataka, India<br>
+            Phone: 11111111111<br>
+            Email: demo@mvmschool.example
+          </address>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="wrap footer-bottom-inner">
+        <nav class="footer-nav">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="#">Academics</a>
+          <a href="#">Admissions</a>
+        </nav>
+        <div class="copyright">© 2025 Mahila Vidyalya Mandal English School. All Rights Reserved.</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- small dropdown script (works on keyboard and touch) -->
+  <script>
+    (function(){
+      const dd = document.querySelector('.nav-dropdown');
+      if (!dd) return;
+      const btn = dd.querySelector('.drop-btn');
+      const menu = dd.querySelector('.drop-menu');
+
+      // toggle function
+      function toggle(open) {
+        const isOpen = !!open || menu.style.display === 'block';
+        if (open === true) {
+          menu.style.display = 'block';
+          btn.setAttribute('aria-expanded','true');
+        } else if (open === false) {
+          menu.style.display = 'none';
+          btn.setAttribute('aria-expanded','false');
+        } else {
+          if (menu.style.display === 'block') {
+            menu.style.display = 'none';
+            btn.setAttribute('aria-expanded','false');
+          } else {
+            menu.style.display = 'block';
+            btn.setAttribute('aria-expanded','true');
+          }
+        }
+      }
+
+      // desktop: show on hover
+      dd.addEventListener('mouseenter', ()=> { if (window.innerWidth > 820) toggle(true); });
+      dd.addEventListener('mouseleave', ()=> { if (window.innerWidth > 820) toggle(false); });
+
+      // button click (mobile friendly)
+      btn.addEventListener('click', (e)=> { e.preventDefault(); toggle(); });
+
+      // close when clicking elsewhere
+      document.addEventListener('click', (e)=> {
+        if (!dd.contains(e.target)) toggle(false);
+      });
+
+      // ensure accessible keyboard navigation
+      btn.addEventListener('keydown', (e)=> {
+        if (e.key === 'ArrowDown') { toggle(true); menu.querySelector('a')?.focus(); e.preventDefault(); }
+        if (e.key === 'Escape') toggle(false);
+      });
+    })();
+  </script>
+</body>
+</html>
